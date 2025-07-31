@@ -24,11 +24,7 @@ uniform sampler2D uNormalTexture;
 
 struct Material {
     vec3 surface_albedo;
-    float specular_power;
     vec3 specular_color;
-    vec3 ambient_color;
-    vec3 diffuse_color;
-    bool is_metal;
 };
 layout(std140) uniform uMaterialBlock
 {
@@ -37,11 +33,6 @@ layout(std140) uniform uMaterialBlock
 
 out vec4 fragColor;
 
-
-float DotProd(vec3 a, vec3 b)
-{
-    return abs(dot(a, b)) + 0.000001;
-}
 
 float DistributionGGXuabc(float alpha1, float alpha2, float NdotM)
 {
